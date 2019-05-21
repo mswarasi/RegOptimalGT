@@ -23,7 +23,7 @@ logpz0=(groupy*log(eps+py0[1:14430]))//
 end;
 end;
 pz1=1-exp(logpz0);
-return((zs‘*log(eps+pz1)+(1-zs)‘*logpz0)/groupno);
+return((zsâ€˜*log(eps+pz1)+(1-zs)â€˜*logpz0)/groupno);
 finish;
 /* Define the likelihood function accounting for misclassfication. */
 start lkhm(betas) global(groupno, groupy, xs, zs, eta, delta, eps, uneqgs,
@@ -39,7 +39,7 @@ pz0=exp((groupy*log(eps+py0[1:14430]))//
 end;
 end;
 pzm1=eta-(eta+delta-1)#pz0;
-return((zs‘*log(pzm1)+(1-zs)‘*log(1-pzm1))/groupno);
+return((zsâ€˜*log(pzm1)+(1-zs)â€˜*log(1-pzm1))/groupno);
 finish;
 /* Read in the data. */
 use rawdata.chlam2008v2; read all into hiv; close rawdata.chlam2008v2;
@@ -112,4 +112,4 @@ grdni[i, ]=grd;
 call nlpfdd(fv, grd, useless, "lkhm", bti);
 grdti[i, ]=grd;
 end;
-
+
